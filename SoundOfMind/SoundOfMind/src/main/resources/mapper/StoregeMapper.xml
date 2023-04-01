@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.SoundOfMind.mapper.StoregeMapper">
+	<select id="comushow" parameterType="int"
+		resultType="com.SoundOfMind.domain.Storege">
+		SELECT @rownum:=@rownum+1 as rownum, S.*
+		FROM (SELECT * FROM
+		STOREGE WHERE (@rownum :=${page})=${page} ORDER BY DATE DESC )
+		S
+		LIMIT
+		10 OFFSET ${page};
+	</select>
+
+	<select id="comushowSize"
+		resultType="com.SoundOfMind.domain.Storege">
+		SELECT @rownum:=@rownum+1 as rownum, S.*
+		FROM (SELECT * FROM
+		STOREGE WHERE
+		(@rownum :=0)=0 ORDER BY DATE DESC )
+		S
+	</select>
+	<select id="board" parameterType="int"
+		resultType="com.SoundOfMind.domain.Storege">
+		SELECT * FROM STOREGE WHERE S_INDEX=#{s_index}
+	</select>
+
+	<select id="boardComent" parameterType="int"
+		resultType="com.SoundOfMind.domain.Coment">
+		SELECT C.*
+		FROM STOREGE S,COMENT C
+		WHERE
+		S.S_INDEX=C.STOREGE_ID AND S_INDEX=#{s_index}
+	</select>
+	<update id="click" parameterType="int">
+		UPDATE STOREGE SET
+		CLICK=#{click} WHERE S_INDEX = #{s_index};
+	</update>
+
+	<select id="clickBest"
+		resultType="com.SoundOfMind.domain.Storege">
+		SELECT @rownum:=@rownum+1 as rownum, S.*
+		FROM (SELECT * FROM
+		STOREGE WHERE (@rownum :=0)=0 ORDER BY CLICK DESC ) S
+	</select>
+	<insert id="boardWrite" parameterType="String">
+		INSERT INTO
+		STOREGE(DATE,TITLE,CONTENT,ID)
+		VALUES(now(),#{title},#{content},#{id})
+	</insert>
+	<select id="search" parameterType="String"
+		resultType="com.SoundOfMind.domain.Storege">
+		SELECT @rownum:=@rownum+1 as rownum, S.*
+		FROM (SELECT
+		TITLE,DATE,CLICK,ID FROM STOREGE WHERE (@rownum:=0)=0 AND
+		TITLE LIKE
+		'%${search}%' ORDER BY DATE DESC) S
+	</select>
+</mapper>
