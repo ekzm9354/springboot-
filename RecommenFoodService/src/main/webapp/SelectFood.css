@@ -1,0 +1,163 @@
+@charset "UTF-8";
+@charset "UTF-8";
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  font-family:sans-serif;
+
+}
+
+body {
+  background-image:#34495e;
+}
+
+
+
+.joinForm h2 {
+  text-align: center;
+  margin: 30px;
+}
+
+.textForm {
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+}
+
+
+.id {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+
+
+.btn {
+  position:relative;
+  left:50%;
+  transform: translateX(-50%);
+  margin-bottom: 40px;
+  width:20%;
+  height:40px;
+  background: #fc6c3f;
+  background-position: left;
+  background-size: 100%;
+  color:white;
+  font-weight: bold;
+  border:none;
+  cursor:pointer;
+  transition: 0.4s;
+  display:inline;
+}
+
+/* .btn:hover {
+  background-position: right;
+}
+h2{
+	text-align: center;
+}
+
+body{
+    background:#f3c538;
+}
+.forget-pwd > a{
+    color: #dc3545;
+    font-weight: 500;
+}
+.forget-password .panel-default{
+    padding: 31%;
+    margin-top: -27%;
+}
+.forget-password .panel-body{
+    padding: 15%;
+    margin-bottom: -50%;
+    background: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+img{
+    width:40%;
+    margin-bottom:10%;
+}
+.btnForget{
+    background: #c0392b;
+    border:none;
+}
+.forget-password .dropdown{
+    width: 100%;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+.forget-password .dropdown button{
+    width: 100%;
+}
+.forget-password .dropdown ul{
+    width: 100%;
+} */
+
+/* Credit to bootsnipp.com for the css for the color graph */
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #FFD8D8!important;
+    border-bottom: 1pxsolidrgba(0,0,0,.125);
+    color: #F15F5F;
+    font-size: 30px;
+}
+
+.input-group .form-control {
+    position: relative;
+    z-index: 2;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+    font-size: 25px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid #F15F5F;
+    border-radius: 0.25rem;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    font-size: 25px;
+}
+
+.btn-primary {
+    color: #F15F5F!important;
+    background-color: #FFD8D8!important;
+    border-color: #FFD8D8!important;
+    font-size: 25px!important;
+    border-radius: 20px!important;
+}

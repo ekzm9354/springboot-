@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="ikujo/db/db.properties" />
+	<typeAliases>
+		<typeAlias type="ikujo.model.MemberDTO" alias="MemberDTO" />
+		<typeAlias type="ikujo.model.FoodDTO" alias="FoodDTO" />
+		<typeAlias type="ikujo.model.ShowFoodDTO" alias="ShowFoodDTO" />
+		<typeAlias type="ikujo.model.NutrientsDTO" alias="NutrientsDTO" />
+		<typeAlias type="ikujo.model.DessertDTO" alias="DessertDTO" />
+		<typeAlias type="ikujo.model.FoodcateDTO" alias="FoodcateDTO" /><!--예림추가  -->
+		<typeAlias type="ikujo.model.NutrientsRegistDTO" alias="NutrientsRegistDTO" />
+		<typeAlias type="ikujo.model.ChattingDTO" alias="ChattingDTO" />
+		<typeAlias type="ikujo.model.referenceDTO" alias="referenceDTO" />
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="ikujo/mapper/MemberMapper.xml" />
+		<mapper resource="ikujo/mapper/FoodMapper.xml" />
+		<mapper resource="ikujo/mapper/ShowTableMapper.xml" />
+		<mapper resource="ikujo/mapper/DessertMapper.xml" />
+		<mapper resource="ikujo/mapper/FoodcateMapper.xml" /><!--예림추가  -->
+		<mapper resource="ikujo/mapper/NutrientsMapper.xml" />
+		<mapper resource="ikujo/mapper/ChattingMapper.xml" />
+	</mappers>
+</configuration>

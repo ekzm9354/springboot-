@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ikujo.mapper.ChattingMapper">
+	<insert id="ChattingInsert" parameterType="ChattingDTO">
+		insert into Chatting values(c_seq.nextval,sysdate,#{toName},#{fromName},#{messeges})
+	</insert>
+	
+	<select id="ChattingAll" parameterType="ChattingDTO" resultType="ChattingDTO">
+	select * from chatting where toName=#{toName} and  fromName =#{fromName} or  toName=#{fromName} and  fromName =#{toName} order by c_date asc
+	</select>
+	
+	<select id="ChattingShow" parameterType="ChattingDTO" resultType="ChattingDTO">
+	select * from (
+	select * from chatting where toName=#{toName} and  fromName =#{fromName} or  toName=#{fromName} and  fromName =#{toName} order by c_date desc
+	)where <![CDATA[rownum<=1]]>
+	</select>
+	<delete id="DeleteChatting" parameterType="ChattingDTO">
+		delete from chatting where toName=#{toName} and fromName=#{fromName} or toName=#{fromName} and fromName=#{toName}
+	</delete>
+	<delete id="ChattingDeleteCheck" parameterType="String">
+		delete from chatting where c_seq=#{c_seq}
+	</delete>
+	<select id="ChattingCheck" parameterType="String" resultType="ChattingDTO">
+		select * from chatting where fromname=#{userid} order by toname asc
+	</select>
+	
+</mapper>

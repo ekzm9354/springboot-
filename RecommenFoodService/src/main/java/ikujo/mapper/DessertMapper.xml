@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ikujo.mapper.DessertMapper">
+	<update id="dimg" parameterType="DessertDTO">
+		update dessert set img=#{dessertid}||'.'||'jpg' where dessertid=#{dessertid}
+	</update>
+	<select id="showD" parameterType="String"
+		resultType="DessertDTO">
+		select * from dessert where label=#{keyword}
+	</select>
+</mapper>

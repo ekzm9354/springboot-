@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ikujo.mapper.ShowTableMapper">
+
+
+	<select id="showFoodId" parameterType="String"
+		resultType="ShowFoodDTO">
+		select to_char(u.udate, 'YYYY-MM-DD'),f.* from food f, userui u where
+		f.foodid=u.foodid and u.userid =#{id} order by to_char(u.udate, 'YYYY-MM-DD') desc
+	</select>
+
+	<select id="showNutrients" parameterType="String"
+		resultType="NutrientsDTO">
+		select * from nutrients where nutnm=#{nutnm}
+	</select>
+
+	<select id="showNutImg" parameterType="String"
+		resultType="String">
+		select img from nutrients where nutnm=#{nutnm}
+	</select>
+	<select id="showNutreCate" parameterType="String"
+		resultType="NutrientsDTO">
+		select * from nutrients where label=#{keyword}
+	</select>
+	<select id="recommendFood" parameterType="String" resultType="ShowFoodDTO">
+		select * from food where foodnm = #{foodnm}
+	</select>
+	
+	<select id="referData" parameterType="String" resultType="referenceDTO">
+		select kcal,carbohydrate,protein,fat,sugar,ca,fe,mg,k,na,vitaminb,vitaminc from reference r,userinfo u where r.gender=u.gender and r.age=u.age and u.userid=#{id}
+	</select>
+	<select id="userAvgNutri" parameterType="String" resultType="referenceDTO">
+		select to_char(u.udate, 'YYYY-MM-DD'),sum(kcal),sum(carbohydrate),sum(protein),sum(fat),sum(sugar),sum(ca),sum(fe),sum(mg),sum(k),sum(na),sum(vitaminb),sum(vitaminc) from food f, userui u where f.foodid=u.foodid and u.userid =#{id} group by to_char(u.udate, 'YYYY-MM-DD') order by to_char(u.udate, 'YYYY-MM-DD') desc
+	</select>
+</mapper>

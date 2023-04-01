@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ikujo.mapper.FoodMapper">
+
+	<insert id="insertFood" parameterType="FoodDTO">
+		insert into
+		userui(indexu,udate,userid,usernm,foodid)
+		values (U_SEQ.nextval,#{udate},#{userid},#{userNm},(select foodid
+		from food
+		where foodnm=#{foodNm}))
+	</insert>
+	<insert id="insertFoodPresent" parameterType="FoodDTO">
+		insert into
+		userui(indexu,udate,userid,usernm,foodid)
+		values (U_SEQ.nextval,sysdate,#{userid},#{userNm},(select foodid
+		from food
+		where foodnm=#{foodNm}))
+	</insert>
+	<select id="SelectFood" parameterType="String" resultType="String">
+		select foodnm from food where foodnm like '%'||#{keyword}||'%'
+	</select>
+	<select id="SelectImg" parameterType="String" resultType="String">
+		select img from food where foodnm like '%'||#{keyword}||'%'
+	</select>
+</mapper>

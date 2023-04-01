@@ -1,0 +1,63 @@
+@charset "UTF-8";
+html,
+body {
+  margin: 0;
+}
+
+.banner {
+  background: #FFD8D8;
+}
+
+.banner__content {
+  padding: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  font-size: 45px;
+}
+
+.banner__text {
+  flex-grow: 1;
+  line-height: 1.4;
+  font-family: 'Dongle', sans-serif;
+}
+
+.banner__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 50px;
+}
+
+.banner__text,
+.banner__close > span {
+  color: #F15F5F;
+  text-align: center;
+}
+
+/* 새로 추가 */
+.table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    font-size: 25px!important;
+}
+
+.text-center {
+    text-align: center;
+    font-size: 25px;
+}
+
+footer{
+	background: #FFD8D8;
+}
+
+/*new*/
+#response{
+    background: #FFD8D8;
+    border-radius: 20px;
+    color: #F15F5F;
+    border: 2px solid #FFD8D8;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ikujo.mapper.NutrientsMapper">
+
+	<insert id="insertNutri" parameterType="NutrientsRegistDTO">
+		insert into S_NUTRIENTS values(#{userId},#{nutNm},#{nutId},s_seq.nextval,sysdate)
+	</insert>
+
+	
+</mapper>
