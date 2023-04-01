@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.JavaProject01.mapper.UserMapper">
+<insert id="addUSER" parameterType="com.JavaProject01.domain.User">
+	INSERT INTO USERS VALUES(#{frist_name},#{last_name},#{id},#{password});
+</insert>
+<delete id="removeUSER" parameterType="com.JavaProject01.domain.User">
+	DELETE FROM USERS WHERE id=#{id} and password=#{password};
+</delete>
+<select id="loginUSER" parameterType="com.JavaProject01.domain.User" resultType="String">
+	SELECT ID FROM USERS WHERE id=#{id} and password=#{password};
+</select>
+</mapper>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.JavaProject01.mapper.ApiMapper">
+	<insert id="addBinance" parameterType="String">
+		INSERT INTO BINANCE
+		VALUES(#{id},#{api_key},#{sec_key})
+	</insert>
+	<select id="findBinance" parameterType="String"
+		resultType="com.JavaProject01.domain.Binance">
+		SELECT * FROM BINANCE WHERE id=#{id};
+	</select>
+	<select id="findOrderIdBinance" parameterType="Object"
+		resultType="String">
+		SELECT * FROM BINANCE_TAX WHERE orderId=#{orderId};
+	</select>
+	<insert id="addBinanceTax"
+		parameterType="com.JavaProject01.domain.BinanceTax">
+		INSERT INTO BINANCE_TAX
+		VALUES(#{id},#{orderId},#{symbol},#{side},#{price},#{realizedPnl}*10000,#{dates})
+	</insert>
+	<select id="findOrderBinance" parameterType="String"
+		resultType="com.JavaProject01.domain.BinanceTax">
+		SELECT * FROM BINANCE_TAX WHERE id=#{id};
+	</select>
+	<select id="sumBinancePNL" parameterType="String"
+		resultType="String">
+		SELECT SUM(realizedPnl) FROM BINANCE_TAX WHERE id=#{id} and
+		dates=#{dates};
+	</select>
+	<!-- DashBoard -->
+	<select id="findDashboard" parameterType="String"
+		resultType="com.JavaProject01.domain.BinanceDashboard">
+		SELECT * FROM BINANCE_DASHBOARD WHERE id=#{id} and
+		dates=#{dates};
+	</select>
+	<insert id="addDashboard" parameterType="String">
+		insert into
+		binance_dashboard
+		select dates,id,sum(realizedPnl),count(case when
+		id=#{id} and side
+		like
+		'open%' then 1 end)
+		,count(case when id=#{id} and
+		side='OPEN_LONG'
+		then
+		1 end),count(case when
+		id=#{id} and
+		side='OPEN_SHORT' then 1 end)
+		from
+		binance_tax
+		where id=#{id};
+	</insert>
+	<!-- dashBoard Update -->
+	<update id="updateDashboard" parameterType="String">
+		update
+		binance_dashboard set
+		pnl = (select sum(realizedPnl) FROM binance_tax where
+		id=#{id} and dates=#{dates}),
+		position = (select count(case when id=#{id} and side like 'OPEN%' then 1
+		end) FROM binance_tax),
+		longs = (select count(case when id=#{id} and side="OPEN_LONG" then 1
+		end) FROM binance_tax),
+		shorts = (select count(case when id=#{id} and side="OPEN_SHORT" then
+		1 end) FROM binance_tax)
+		where id=#{id} and dates=#{dates};
+	</update>
+	
+	<select id="findAlldashBoard" parameterType="String" resultType="com.JavaProject01.domain.BinanceDashboard">
+		SELECT * FROM  BINANCE_DASHBOARD WHERE id=#{id};
+	</select>
+
+</mapper>
