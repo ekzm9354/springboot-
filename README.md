@@ -1,5 +1,5 @@
 
-**1. JavaProject01 - binance**
+[**1. JavaProject01 - binance**](https://github.com/ekzm9354/springboot-/tree/main/JavaProject01-Binance)
 
 binance api를 활용하여 개인의 암호화폐 거래내역과 포지션 횟수 및 지갑을 확인 할 수 있습니다. 현재는 한 개의 거래소만 연동되어있지만 추후 여러 거래소를 연결할 계획으로 한 페이지에서 통관리할 수 있습니다.
 
@@ -9,7 +9,7 @@ binance api를 활용하여 개인의 암호화폐 거래내역과 포지션 횟
 - Developer : springboot
 - Build : gradle
 
-**2. SoundOfMind**
+[**2. SoundOfMind**](https://github.com/ekzm9354/springboot-/tree/main/SoundOfMind)
 
 선천적 청각장애인들의 사회적 이슈를 접하고 이를 통해 기획하고 구현한 프로젝트로 선천적 청각장애인들이 가지는 이슈는 아래와 같았습니다.
 - 발음이 부정확하며 상대방의 감정에 대한 공감이 어려움
@@ -28,7 +28,7 @@ binance api를 활용하여 개인의 암호화폐 거래내역과 포지션 횟
 - Developer : springboot
 - Build : maven
 
-**3. RecommandFood**
+[**3. RecommandFood**](https://github.com/ekzm9354/springboot-/tree/main/RecommenFoodService)
 
 대한민국 성인남녀는 1일 영양섭취권장량 대비 영양소 섭취가 부족하다는 사회적 이슈를 접하고 이를 통해 기획하고 구현한 프로젝트입니다. 성인남녀가 적정량에 맞는 영양섭취를 하지 못하는 이유 중 1순위는 바쁜 일상, 2순위는 맞는 음식점을 찾기가 어려움이었습니다. 
 
